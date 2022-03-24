@@ -1,0 +1,68 @@
+<app-header></app-header>
+    <div class="container">
+        <div style="text-align: center;" class="mb-3 mt-3">
+            <h2 style="display: inline;">Cart</h2>
+        </div>
+
+        <div *ngIf="notEmpty" class="row gap-3 justify-content-around">
+            <div class="col-10 col-sm-7 p-3 border">
+                <div *ngFor="let cart of cartItems" class="row justify-content-around gap-1 mb-5 px-3 py-3 border">
+                    <!-- <div class="col-10 col-sm-10 col-md-3">
+
+                        <img class="img-fluid" src="../../../../assets/converse.jpg" alt="converse">
+                    </div>
+                    <div class="col-10 col-sm-10 col-md-8">
+                        <h4>Converse Shoes</h4>
+                        <p>A relaxed reconstruction of the classic Chuck, the Shoreline Knit is built for the beach</p>
+            
+                        <h5>Price Rs. 3000</h5>
+
+                        <button (click)="decrease()" type="button" class="btn btn-primary btn-sm">-</button> {{item}} <button (click)="increase()" type="button" class="btn btn-primary btn-sm">+</button> <br>
+
+                        <button type="button" class="btn btn-danger btn-sm mt-3">Remove</button>
+                    </div> -->
+
+                    <div class="col-10 col-sm-10 col-md-3">
+
+                        <img class="img-fluid" src="{{cart.product_image}}" alt="converse">
+                    </div>
+                    <div class="col-10 col-sm-10 col-md-8">
+                        <h4>{{cart.title}}</h4>
+                        <p>A relaxed reconstruction of the classic Chuck, the Shoreline Knit is built for the beach</p>
+            
+                        <h5>Price {{cart.price}}</h5>
+
+                        <button (click)="decrease()" type="button" class="btn btn-primary btn-sm disabled">-</button> 1 <button (click)="increase()" type="button" class="btn btn-primary btn-sm disabled">+</button> <br>
+
+                        <button (click)="deleteCart(cart.cart_id)" type="button" class="btn btn-danger btn-sm mt-3">Remove</button>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <div style="max-height: 400px;" class="col-10 col-sm-4 border p-3">
+                <h5>Order summary</h5>
+                <table style="width: 100%;">
+                    <tr>
+                        <td>Subtotal ({{item}} items)</td>
+                        <td>Rs {{total}}</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping Charge</td>
+                        <td>Rs 200</td>
+
+                    </tr>
+                    <tr class="mt-3">
+                        <td style="padding-top: 20px;">Total</td>
+                        <td style="padding-top: 20px;">Rs {{total+200}}</td>
+                    </tr>
+                </table>
+               <a routerLink="/accounts/checkout"><button style="width: 100%;" class="btn btn-success mt-5 p-2"><span style="font-size: 18px;">Checkout</span> </button></a>
+            </div>
+        </div>
+
+        <div *ngIf="!notEmpty" style="text-align: center;" class="mt-5">
+            <img class="img-fluid" src="../../../../assets/emptycart.png" alt="">
+        </div>
+    </div>
+<app-footer></app-footer>

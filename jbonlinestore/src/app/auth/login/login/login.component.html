@@ -1,0 +1,54 @@
+
+
+<section class="form-container">
+    <div class="imageBox">
+        <img src="../../../../assets/JB.PNG" alt="copmany logo">
+    </div>
+    <div class="contentBox">
+        <div class="formBox">
+           <a style="text-decoration: none;" routerLink="/"><h1 style="text-align: center;" class="logo">JB Online Store</h1></a> 
+            <h2 style="text-align: center;">Login</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" class="form-control" formControlName="username">
+                    <span *ngIf="lfControls.username.errors && (lfControls.username.touched || lfControls.username.dirty)">
+                        <span *ngIf="lfControls.username.errors?.required" class="text-danger">Username field is required</span>
+                    </span>
+                </div>
+
+
+                <div class="mb-1">
+                    <label for="password" class="form-label">Password</label>
+                    <input #passw type="password" id="password" class="form-control" formControlName="password">
+                    <span *ngIf="lfControls.password.errors && (lfControls.password.touched || lfControls.password.dirty)">
+                        <span *ngIf="lfControls.password.errors?.required" class="text-danger">Password field is required</span>
+                    </span>
+                </div>
+
+                <div class="mb-3">
+                    <input type="checkbox" id="pass" class="form-check-input" (click)="hideShowPass()">
+                    <label for="pass" class="form-label"> &nbsp;Show Password</label> 
+                </div>
+
+                
+                <button [disabled]="loginForm.invalid" style="width: 100%;" type="submit" class="btn btn-primary">Login</button>
+
+                <!-- <h5 style="text-align: center;" class="mb-2 mt-2">OR</h5>
+                <div style="background-color: #3b5998; color: white; border-radius: 5px;" class="d-flex gap-5 justify-content-center mb-2 p-2">
+                    <p><span><i class="fa-brands fa-facebook-f"></i></span></p>
+                    <p>Continue with Facebook</p>
+                </div>
+                <div style="background-color: #de5246; color: white; border-radius: 5px;" class="d-flex gap-5 justify-content-center mb-2 p-2">
+                    <p><span><i class="fa-brands fa-google"></i></span></p>
+                    <p>Continue with Google</p>
+                </div> -->
+                
+                <div style="text-align: center;" class="mt-3 mb-3">
+                    <p style="color: #607d8b;">Don't have an account ? <a routerLink="/auth/register">Register</a></p>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</section>

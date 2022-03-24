@@ -1,0 +1,20 @@
+<div class="product-details-container mt-5 mb-5">
+    <div *ngFor="let pd of productDetails" class="row justify-content-center">
+        <div class="col-10 col-sm-6">
+            <img src="{{pd.product_image}}" alt="{{pd.title}}" class="img-thumbnail">
+        </div>
+        <div class="col-10 col-sm-6">
+            <h3>{{pd.title}}</h3>
+
+            <h4 class="price mt-3">Price : Rs {{pd.price}}</h4>
+            <a (click)="addToCart(pd.id)" class="btn btn-secondary">Add to cart</a>
+
+            <div class="product-description mt-5 ">
+                <h4 style="padding: 5px; background-color: #B8A076;" class="text-light">Product Description</h4>
+                <p>{{pd.discription}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-similarproducts></app-similarproducts>

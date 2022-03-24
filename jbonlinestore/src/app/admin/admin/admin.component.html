@@ -1,0 +1,52 @@
+<header class="bg-dark d-flex gap-3 p-2" style="position: fixed; top:0; z-index: 1; width: 100%;">
+    <div class="p-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample"
+        aria-expanded="false" aria-controls="collapseWidthExample">
+        <span class="text-light"><i class="fa-solid fa-bars fa-2xl"></i></span>
+    </div>
+    <div>
+        <a style="text-decoration: none;" routerLink="/"><h1 class="logo">JB Online Store</h1></a>
+    </div>
+</header>
+
+
+<div class="dashboard-container">
+    <div style="float: left;" class="collapse collapse-horizontal show sidenav-container"
+        id="collapseWidthExample">
+        <div style="min-height: 100vh; width: 200px; background-color: #3d464d; color: white;" class="card card-body">
+            <div class="sidenav">
+                <a routerLink="/admin">Dashboard</a>
+                <button (click)="userToggle()" class="dropdown-btn">User 
+                  <span *ngIf="showUser"><i class="fa fa-caret-down"></i></span>
+                  <span *ngIf="!showUser"><i class="fa fa-caret-left"></i></span>
+
+                </button>
+                <ng-container *ngIf="showUser">
+                    <div class="dropdown-container">
+                        <a routerLink="/admin/user/adduser">add user</a>
+                        <a routerLink="/admin/user/viewusers">view users</a>
+                        <!-- <a routerLink="/admin/user/adduserdetails">add user details</a>
+                        <a routerLink="/admin/user/viewuserdetails">view users details</a> -->
+                    </div>
+                </ng-container>
+                <button (click)="productToggle()" class="dropdown-btn">Product 
+                    <span *ngIf="showProduct"><i class="fa fa-caret-down"></i></span>
+                    <span *ngIf="!showProduct"><i class="fa fa-caret-left"></i></span>
+                  </button>
+                  <ng-container *ngIf="showProduct">
+                      <div class="dropdown-container">
+                          <a routerLink="/admin/product">add product</a>
+                          <a routerLink="/admin/product/viewproducts">view products</a>
+                      </div>
+                  </ng-container>
+                <a routerLink="/admin/orders">Orders</a>
+
+                <a (click)="logout()">Logout</a>
+              </div>
+        </div>
+    </div>
+    <div class="dashboard">
+        <div class="dashboard-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

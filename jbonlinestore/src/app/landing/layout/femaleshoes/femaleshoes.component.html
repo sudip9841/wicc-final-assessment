@@ -1,0 +1,23 @@
+<div class="mt-5 mb-4 carousel-title">
+    <h2>Female Shoes</h2>
+</div>
+
+<owl-carousel-o [options]="customOptions">
+
+    <ng-container *ngFor="let fshoes of femaleShoesData; let i = index">
+        <ng-template carouselSlide [id]="i+''">
+            <!-- <img [src]="brand.product_image" [alt]="brand.title" [title]="brand.title"> -->
+            <div class="card">
+                <img src="{{fshoes.product_image}}" class="card-img-top" alt="{{fshoes.title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{fshoes.title | slice:0:30}}</h5>
+                    <div class="d-flex justify-content-around">
+                        <a (click)="addToCart(fshoes.id)" class="btn btn-outline-secondary">Add to cart</a>
+                        <a routerLink="/home/product/{{fshoes.id}}" class="btn btn-outline-warning">View</a>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </ng-container>
+
+</owl-carousel-o>

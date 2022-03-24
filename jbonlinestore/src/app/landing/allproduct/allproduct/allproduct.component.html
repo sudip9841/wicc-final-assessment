@@ -1,0 +1,20 @@
+
+<!-- <div class="search-product">
+    <input class="form-control" type="search"  placeholder="search name using custom pipe" [(ngModel)]="title">
+</div> -->
+<div class="row justify-content-around gy-4 mt-3">
+    <div *ngFor="let prod of allProd" class="col-10 col-sm-5 col-md-4 col-lg-3">
+        <div class="card">
+            <div style=" text-align: center;" class="card-top p-5">
+                <img width="100%" src="{{prod.product_image}}" alt="{{prod.title}}">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{prod.title | slice:0:30}}</h5>
+              <div class="d-flex justify-content-around gap-2">
+                <a (click)="addToCart(prod.id)" class="btn btn-outline-secondary">Add to cart</a>
+                <a routerLink="/home/product/{{prod.id}}" class="btn btn-outline-warning">View</a>
+            </div>
+            </div>
+          </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+
+<div class="admin-adduser-form-container border">
+    <div class="mb-3">
+        <h4>Add User</h4>
+    </div>
+
+<form [formGroup]="registerForm" (ngSubmit)="registerFormSubmit()">
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" id="username" class="form-control" formControlName="username">
+        <span *ngIf="rfControls.username.errors && (rfControls.username.touched || rfControls.username.dirty)">
+            <span *ngIf="rfControls.username.errors?.required" class="text-danger">Username field is required</span>
+        </span>
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email">
+        <span *ngIf="rfControls.email.errors && (rfControls.email.touched || rfControls.email.dirty)">
+            <span *ngIf="rfControls.email.errors?.required" class="text-danger">Email field is required</span>
+            <span *ngIf="rfControls.email.errors?.email" class="text-danger">Enter a valid email</span>
+        </span>
+    </div>
+
+    <div class="mb-1">
+        <label for="password" class="form-label">Password</label>
+        <input #pass type="password" id="password" class="form-control" formControlName="password">
+        <span *ngIf="rfControls.password.errors && (rfControls.password.touched || rfControls.password.dirty)">
+            <span *ngIf="rfControls.password.errors?.required" class="text-danger">Email field is required</span>
+        </span>
+        
+    </div>
+    <div class="mb-3">
+        <input type="checkbox" id="pass" class="form-check-input" (click)="hideShowPass()">
+        <label for="pass" class="form-label"> &nbsp;Show Password</label> 
+    </div>
+
+    <button [disabled]="registerForm.invalid" type="submit" class="btn btn-success">Add user</button>
+
+    
+    
+    
+</form>
+</div>

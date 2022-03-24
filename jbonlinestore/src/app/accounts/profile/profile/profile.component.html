@@ -1,0 +1,50 @@
+<div class="profile-form-container">
+<h4 class="mb-3">Profile</h4>
+<form [formGroup]="profileForm" (ngSubmit)="profileFormSubmission()">
+    <!-- <div class="mb-3">
+        <label for="username" class="form-label">User Id</label>
+        <input type="text" class="form-control" formControlName="user">
+    </div> -->
+    <div class="mb-3">
+        <label class="form-label" for="fullname">Full name</label>
+        <input class="form-control" type="text" formControlName="fullName">
+        <span *ngIf="profileControls.fullName.errors && (profileControls.fullName.touched || profileControls.fullName.dirty)">
+            <span *ngIf="profileControls.fullName.errors?.required">
+                <p class="text-danger">Full name field is required</p>
+            </span>
+            <span *ngIf="profileControls.fullName.errors?.maxlength">
+                <p class="text-danger">Full name should be less than 31 characters</p>
+            </span>
+        </span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="address">Address</label>
+        <input class="form-control" type="text" formControlName="address">
+        <span *ngIf="profileControls.address.errors && (profileControls.address.touched || profileControls.address.dirty)">
+            <span *ngIf="profileControls.address.errors?.required">
+                <p class="text-danger">Addressfield is required</p>
+            </span>
+            <span *ngIf="profileControls.address.errors?.maxlength">
+                <p class="text-danger">Addres should be less than 26 characters</p>
+            </span>
+        </span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="phone">Phone</label>
+        <input class="form-control" type="tel" formControlName="phone">
+        <span *ngIf="profileControls.phone.errors && (profileControls.phone.touched || profileControls.phone.dirty)">
+            <span *ngIf="profileControls.phone.errors?.required">
+                <p class="text-danger">Phone field is required</p>
+            </span>
+            <span *ngIf="profileControls.phone.errors?.pattern">
+                <p class="text-danger">Please enter valid phone number</p>
+            </span>
+        </span>
+    </div>
+
+    <button [disabled]="profileForm.invalid || !dis" class="btn btn-dark">{{profileBtn}}</button>
+</form>
+
+</div>

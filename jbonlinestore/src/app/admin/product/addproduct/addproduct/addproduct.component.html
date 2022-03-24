@@ -1,0 +1,100 @@
+<div class="admin-add-product-form-container border">
+    <div>
+        <h4>Add Products</h4>
+    </div>
+    <form [formGroup]="productForm" (ngSubmit)="submitProductForm()">
+        <div class="mb-3">
+            <label class="form-label" for="title">Title</label>
+            <input class="form-control" id="title" type="text" formControlName="title">
+            <span *ngIf="productControls.title.errors && (productControls.title.touched || productControls.title.dirty)">
+                <span *ngIf="productControls.title.errors?.required">
+                    <p class="text-danger">Title field is required</p>
+                </span>
+                <span *ngIf="productControls.title.errors?.maxlength">
+                    <p class="text-danger">Title field should be less than 101 characters</p>
+                </span>
+            </span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="price">Price</label>
+            <input class="form-control" type="number" id="price" formControlName="price">
+            <span *ngIf="productControls.price.errors && (productControls.price.touched || productControls.price.dirty)">
+                <span *ngIf="productControls.price.errors?.required">
+                    <p class="text-danger">Price field is required</p>
+                </span>
+                <span *ngIf="productControls.price.errors?.pattern">
+                    <p class="text-danger">Price field should be positive</p>
+                </span>
+            </span>
+        </div>
+
+        <div class="mb-3">
+            <label for="descriptions" class="form-label">Descriptions</label>
+            <textarea class="form-control" id="descriptions" rows="3" formControlName="discription"></textarea>
+            <span *ngIf="productControls.discription.errors && (productControls.discription.touched || productControls.discription.dirty)">
+                <span *ngIf="productControls.discription.errors?.required">
+                    <p class="text-danger">Description field is required</p>
+                </span>
+                <span *ngIf="productControls.discription.errors?.maxlength">
+                    <p class="text-danger">Description field should be less than 251 characters</p>
+                </span>
+            </span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked formControlName="gender">
+                <label class="form-check-label" for="male">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female" formControlName="gender">
+                <label class="form-check-label" for="female">
+                    Female
+                </label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="brand">Brand</label>
+            <input class="form-control" type="text" id="brand" formControlName="brand">
+            <span *ngIf="productControls.brand.errors && (productControls.brand.touched || productControls.brand.dirty)">
+                <span *ngIf="productControls.brand.errors?.required">
+                    <p class="text-danger">Brand field is required</p>
+                </span>
+                <span *ngIf="productControls.brand.errors?.maxlength">
+                    <p class="text-danger">Brand field should be less than 51 characters</p>
+                </span>
+            </span>
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="category">Category</label>
+            <input class="form-control" type="text" id="category" formControlName="category">
+
+            <span *ngIf="productControls.category.errors && (productControls.category.touched || productControls.category.dirty)">
+                <span *ngIf="productControls.category.errors?.required">
+                    <p class="text-danger">Category field is required</p>
+                </span>
+                <span *ngIf="productControls.category.errors?.maxlength">
+                    <p class="text-danger">Category field should be less than 51 characters</p>
+                </span>
+            </span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="product_image">Product image</label>
+            <input type="file" id="product_image" class="form-control">
+            <!-- <span *ngIf="productControls.product_image.errors && (productControls.product_image.touched || productControls.product_image.dirty)">
+                <span *ngIf="productControls.product_image.errors?.required">
+                    <p class="text-danger">Product image field is required</p>
+                </span>
+            </span> -->
+        </div>
+
+        <button [disabled]="productForm.invalid" class="btn btn-dark">Add product</button>
+    </form>
+</div>

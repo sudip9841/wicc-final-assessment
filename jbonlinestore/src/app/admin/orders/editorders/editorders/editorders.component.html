@@ -1,0 +1,36 @@
+
+<div class="admin-editorder-form-container border">
+    <div class="mb-3">
+        <h4>Edit orders</h4>
+    </div>
+
+    <form [formGroup]="orderForm" (ngSubmit)="orderFormSubmit()">
+        <div class="mb-3">
+            <label for="id" class="form-label">Order id</label>
+            <input type="text" id="id" class="form-control" formControlName="id" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="user" class="form-label">User</label>
+            <input type="text" id="user" class="form-control" formControlName="user"  readonly>
+        </div>
+        <div class="mb-3">
+            <label for="product" class="form-label">Product</label>
+            <input type="text" id="product" class="form-control" formControlName="product" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="text" id="quantity" class="form-control" formControlName="quantity"  readonly>
+        </div>
+        <div class="mb-3">
+            <label for="order_date" class="form-label">Order date</label>
+            <input type="text" id="order_date" class="form-control" formControlName="order_date" readonly>
+        </div>
+        <select class="form-select mb-3" aria-label="Default select example" formControlName="status">
+            <option value="pending">Pending</option>
+            <option value="accepted">Accepted</option>
+            <option value="delivered">Delivered</option>
+          </select>
+
+        <button class="btn btn-dark mb-3">Update orders</button>
+    </form>
+</div>

@@ -1,0 +1,24 @@
+<div class="mt-5 mb-4 carousel-title">
+    <h2>Similar Shoes</h2>
+</div>
+<owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let sProducts of similarProducts; let i = index">
+        <ng-template carouselSlide [id]="i+''">
+            
+            <div class="card">
+                <img src="{{sProducts.product_image}}" class="card-img-top" alt="{{sProducts.title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{sProducts.title | slice:0:30}}</h5>
+                    <div class="d-flex justify-content-around">
+                        <a routerLink="/accounts/cart" class="btn btn-outline-secondary">Add to cart</a>
+                        <!-- <a routerLink="/home/product/{{sProducts.id}}" class="btn btn-outline-warning">View</a> -->
+                        <a (click)="navigateProductdetails(sProducts.id)" class="btn btn-outline-warning">View</a>
+                        <!-- <a [routerLink]="['../',sProducts.id]" class="btn btn-outline-warning">View</a> -->
+                        
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </ng-container>
+
+</owl-carousel-o>

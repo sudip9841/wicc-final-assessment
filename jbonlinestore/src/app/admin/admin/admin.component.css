@@ -1,0 +1,40 @@
+.dashboard-content {
+  height: 100vh;
+  overflow: auto;
+  padding: 20px;
+  padding-top: 80px;
+}
+
+.sidenav {
+  margin-top: 60px;
+}
+
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.dropdown-container {
+  padding-left: 8px;
+}
+
+.dropdown-container a {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 550px) {
+  .sidenav-container {
+    float: left;
+    position: fixed;
+    z-index: 0;
+  }
+}
